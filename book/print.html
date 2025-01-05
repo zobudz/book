@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Electronic airprox avoidance</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Electronic airprox avoidance</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="scope"><a class="header" href="#scope">Scope</a></h1>
+<p>Electronic systems to minimise the risk of mid-air collisions in air-to-air scenarios for human pilots.</p>
+<p>Some reasoning about the application of technologies for flight safety warning systems in aircraft telling pilots if other aircraft are in close proximity, and especially if on a converging path.</p>
+<p>Here the focus is on systems that provide air-to-air functionality.  Some motivation for this focus is that a critical factor for warning a pilot is latency.  This focusses on how latency can be optimised in an air-to-air system.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="names-and-descriptions"><a class="header" href="#names-and-descriptions">Names and descriptions</a></h1>
+<p>For searching for more information on the topic.</p>
+<h3 id="see-and-avoid"><a class="header" href="#see-and-avoid"><a href="https://www.google.com/search?q=See+and+Avoid">See and Avoid</a></a></h3>
+<p>The generally accepted term for avoiding collisions by making it easy for others to see you while defensively looking out for them.  Originally used before electronic systems were available and applied mostly for human visual lookout.</p>
+<h3 id="airborne-collision-avoidance-system-acas-aka-traffic-collision-avoidance-system-tcas"><a class="header" href="#airborne-collision-avoidance-system-acas-aka-traffic-collision-avoidance-system-tcas">Airborne Collision Avoidance System (ACAS) aka <a href="https://en.wikipedia.org/wiki/Traffic_collision_avoidance_system">Traffic Collision Avoidance System (TCAS)</a></a></h3>
+<p>Available since the 1990's TCAS/ACAS "is an aircraft collision avoidance system designed to reduce the incidence of mid-air collision (MAC) between aircraft"</p>
+<p>The terms are usually reserved for the specific standard it describes.</p>
+<h3 id="electronic-conspicuity-ec"><a class="header" href="#electronic-conspicuity-ec"><a href="https://www.google.com/search?q=Electronic+Conspicuity+%28EC%29">Electronic Conspicuity (EC)</a></a></h3>
+<p>Electronic Conspicuity (EC) is an umbrella term for the technology that can help pilots, unmanned aircraft users and air traffic services be more aware of what is operating in surrounding airspace.</p>
+<p>Electronic systems for for avoiding collisions is a specific subset of EC.</p>
+<h3 id="detect-and-avoid-daa"><a class="header" href="#detect-and-avoid-daa"><a href="https://www.google.com/search?q=Detect+and+Avoid+%28DAA%29+aviation">Detect and Avoid (DAA)</a></a></h3>
+<p>Appears as a term used to describe systems "To enable safe airspace integration of unmanned aircraft".  Its use appears mostly with unmanned instead of manned to manned air-to-air collision warning.</p>
+<p>The DAA term in at least 1 <a href="https://consultations.caa.co.uk/future-safety/detect-and-avoid-policy-concept-consultation/supporting_documents/CAP3015%20Detect%20and%20Avoid%20Policy.pdf">definition</a> goes beyond surveillance for other local aircraft and generating a warning to the pilot.  It includes aspects such as performing an avoidance manoeuvre that may be automated instead of pilot controlled.</p>
+<h3 id="collision-avoidance-systems"><a class="header" href="#collision-avoidance-systems"><a href="https://www.google.com/search?q=Collision+avoidance+systems+aviation">Collision avoidance systems</a></a></h3>
+<p>Appears as a generic term to describe specific equipment to perform surveillance for other local aircraft and sometimes "co-operate" by emiting the information itself.</p>
+<p>Some of the systems thus described include a ground segment, where air-to-air systems are a subset, and some functionality includes a recieve only portion of a full system.</p>
+<h3 id="situational-awareness"><a class="header" href="#situational-awareness"><a href="https://www.google.com/search?q=Situational+awareness+aviation">Situational awareness</a></a></h3>
+<p>Described as "appreciating all you need to know about what is going on when the full scope of your task - flying, controlling or maintaining an aircraft" is broad, much broader than electronic systems to minimise the risk of mid-air collisions.</p>
+<h3 id="sense-and-avoid"><a class="header" href="#sense-and-avoid"><a href="https://www.google.com/search?q=Sense+and+avoid+aviation">Sense and avoid</a></a></h3>
+<p>While used commonly in an aviation context, the term has been used for cases involving unmanned aircraft and may include a manoeuvre path to avoid obsticles, instead of providing a pilot warning.</p>
+<h3 id="detect-and-alert"><a class="header" href="#detect-and-alert"><a href="https://www.google.com/search?q=Detect+and+alert+aviation">Detect and alert</a></a></h3>
+<p>While the use of the term identifies human intervention for evasive action, is has been used to describe systems that rely on ground-based optical nodes to monitor the skies, instead of air-to-air operation.</p>
+<h3 id="airborne-collision-warning-system"><a class="header" href="#airborne-collision-warning-system"><a href="https://www.google.com/search?q=Airborne+Collision+Warning+System">Airborne Collision Warning System</a></a></h3>
+<p>A relatively under used term that fits the description of this scope, and likely to be the best title to use.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="specifications-and-standards"><a class="header" href="#specifications-and-standards">Specifications and standards</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tcas"><a class="header" href="#tcas">TCAS</a></h1>
+<h2 id="tcas-version-71"><a class="header" href="#tcas-version-71"><a href="https://www.faa.gov/documentLibrary/media/Advisory_Circular/TCAS%20II%20V7.1%20Intro%20booklet.pdf">TCAS Version 7.1</a></a></h2>
+<p>ICAO has mandated TCAS 7.1 by January 1, 2014, for forward-fit aircraft and January 1, 2017, for retrofit aircraft.</p>
+<p>ToDo: Discover copies or sources of "Technical requirements specifications" e.g. RTCA SC-147, RTCA-DO-185B
+ToDo: Find the 'single source of truth' that defines what TCAS Version 7.1 is</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ads-b"><a class="header" href="#ads-b">ADS-B</a></h1>
+<p>to other ADS-B In equipped aircraft with position and velocity data transmitted every second</p>
+<h3 id="physical-layer"><a class="header" href="#physical-layer">Physical layer</a></h3>
+<p>Two link solutions are used as the physical layer for relaying ADS-B position reports:</p>
+<p><a href="https://standards.globalspec.com/std/2011300/rtca-do-282">978 MHz link  universal access transceiver, rtca-do-282</a> Minimum Operational Performance Standards for Universal Access Transceiver (UAT) Automatic Dependent Surveillance – Broadcast. RTCA. 29 July 2004. DO-282A.</p>
+<p>UAT is a multi-purpose aeronautical data link intended to support not only ADS-B, but also Flight Information Service - Broadcast (FIS-B), Traffic Information Service - Broadcast (TIS-B) and, if required in the future, supplementary ranging and positioning capabilities. The document was developed in parallel with DO-260B.</p>
+<p><a href="https://www.icao.int/safety/acp/inactive%20working%20groups%20library/acp-wg-c-uat-8/uat-swg08-wp22%20-%20rc%20unit%203%20test%20procedure%20and%20report.pdf">UAT Test Procedure </a></p>
+<p><a href="https://my.rtca.org/productdetails?id=a1B36000001IcjDEAS">1090 MHz extended squitter, essentially a modified Mode S transponder  DO-260B</a> Minimum Operational Performance Standards for 1090 MHz Extended Squitter Automatic Dependent Surveillance – Broadcast (ADS-B) and Traffic Information Services – Broadcast (TIS-B). RTCA.</p>
+<p><a href="https://www.icao.int/NACC/Documents/Meetings/2018/ADSB/P01-FAA-AgendaItem3.pdf">ICAO ADS-B Meeting November 27-30, 2018 DO-260B/ED-102A</a></p>
+<p><a href="https://www.icao.int/wacaf/documents/apirg/sg/2011/cns_sg4/docs/wp20_en.pdf">4th Meeting of the APIRG Communications, Navigation and Surveillance Sub-group Dakar, Senegal, 25-29 July 2011</a></p>
+<p><a href="https://www.icao.int/isbn/Lists/Publications/DispForm.aspx?ID=2052">ICAO (2012). ICAO Doc 9871, Technical Provisions for Mode S and Extended Squitter (2 ed.). International Civil Aviation Organization. ISBN 978-92-9249-042-3.</a></p>
+<p><a href="https://www.icao.int/isbn/Lists/Publications/DispForm.aspx?ID=2052">The format of extended squitter messages has been codified by the ICAO.</a></p>
+<p><a href="https://www.seaerospace.com/documents/TSO-C166A.pdf">Extended Squitter Automatic Dependent Surveillance - Broadcast (ADS-B) and Traffic Information Service - Broadcast (TIS-B) Equipment Operating on the Radio Frequency of  1090 Megahertz (MHz)</a></p>
+<p>https://www.researchgate.net/figure/Format-of-Squitter-and-Extended-Squitter-messages-adapted-from-Orlando-2013_fig3_265085540</p>
+<p>https://www.researchgate.net/publication/265085540_Limits_and_Future_GNSS_Solutions_for_Aircraft_Landing_in_low_Visibility_Conditions/</p>
+<p><img src="image.png" alt="ADSB Message in Mode S Extended Squitter" /></p>
+<h3 id="certified-gnss-position-source"><a class="header" href="#certified-gnss-position-source">certified GNSS position source</a></h3>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
