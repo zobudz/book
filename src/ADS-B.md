@@ -26,7 +26,7 @@ UAT is a multi-purpose aeronautical data link intended to support not only ADS-B
 
 https://www.researchgate.net/figure/Format-of-Squitter-and-Extended-Squitter-messages-adapted-from-Orlando-2013_fig3_265085540
 
-https://www.researchgate.net/publication/265085540_Limits_and_Future_GNSS_Solutions_for_Aircraft_Landing_in_low_Visibility_Conditions/
+https://www.researchgate.net/publication/265085540_Limits_and_Future_GNSS_Solutions_for_Aircraft_Landing_in_low_Visibility_Conditions/ <!-- copies/LIMITSANDFUTUREGNSSSOLUTIONSFORAIRCRAFTLANDINGINLOWVISIBILITYCONDITIONS.pdf -->
 
 ![ADSB Message in Mode S Extended Squitter](image.png)
 
