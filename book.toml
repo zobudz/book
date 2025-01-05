@@ -1,0 +1,6 @@
+[book]
+authors = ["Nigel Bray"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Electronic airprox avoidance"
