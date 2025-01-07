@@ -5,3 +5,4 @@
 - [Specifications and standards](./Standards.md)
     - [TCAS](./TCAS.md)
     - [ADS-B](./ADS-B.md)
+- [Analysis of details](./Details.md)

@@ -8,7 +8,7 @@ class MDBookSidebarScrollbox extends HTMLElement {
         super();
     }
     connectedCallback() {
-        this.innerHTML = '<ol class="chapter"><li class="chapter-item expanded "><a href="Scope.html"><strong aria-hidden="true">1.</strong> Scope</a></li><li class="chapter-item expanded "><a href="Names.html"><strong aria-hidden="true">2.</strong> Names and descriptions</a></li><li class="chapter-item expanded "><a href="Standards.html"><strong aria-hidden="true">3.</strong> Specifications and standards</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="TCAS.html"><strong aria-hidden="true">3.1.</strong> TCAS</a></li><li class="chapter-item expanded "><a href="ADS-B.html"><strong aria-hidden="true">3.2.</strong> ADS-B</a></li></ol></li></ol>';
+        this.innerHTML = '<ol class="chapter"><li class="chapter-item expanded "><a href="Scope.html"><strong aria-hidden="true">1.</strong> Scope</a></li><li class="chapter-item expanded "><a href="Names.html"><strong aria-hidden="true">2.</strong> Names and descriptions</a></li><li class="chapter-item expanded "><a href="Standards.html"><strong aria-hidden="true">3.</strong> Specifications and standards</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="TCAS.html"><strong aria-hidden="true">3.1.</strong> TCAS</a></li><li class="chapter-item expanded "><a href="ADS-B.html"><strong aria-hidden="true">3.2.</strong> ADS-B</a></li></ol></li><li class="chapter-item expanded "><a href="Details.html"><strong aria-hidden="true">4.</strong> Analysis of details</a></li></ol>';
         // Set the current, active page, and reveal it if it's hidden
         let current_page = document.location.href.toString();
         if (current_page.endsWith("/")) {
