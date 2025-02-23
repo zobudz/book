@@ -24,6 +24,8 @@ UAT is a multi-purpose aeronautical data link intended to support not only ADS-B
 
 [Extended Squitter Automatic Dependent Surveillance - Broadcast (ADS-B) and Traffic Information Service - Broadcast (TIS-B) Equipment Operating on the Radio Frequency of  1090 Megahertz (MHz)](https://www.seaerospace.com/documents/TSO-C166A.pdf)
 
+[Mode S Reply Encoding](https://www.radartutorial.eu/13.ssr/sr24.en.html)
+
 https://www.researchgate.net/figure/Format-of-Squitter-and-Extended-Squitter-messages-adapted-from-Orlando-2013_fig3_265085540
 
 https://www.researchgate.net/publication/265085540_Limits_and_Future_GNSS_Solutions_for_Aircraft_Landing_in_low_Visibility_Conditions/ <!-- copies/LIMITSANDFUTUREGNSSSOLUTIONSFORAIRCRAFTLANDINGINLOWVISIBILITYCONDITIONS.pdf -->
